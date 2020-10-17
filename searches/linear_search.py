@@ -22,8 +22,8 @@ def linear_search(sequence: list, target: int) -> int:
     0
     >>> linear_search([0, 5, 7, 10, 15], 15)
     4
-    >>> linear_search([0, 5, 7, 10, 15], 5)
-    1
+    >>> linear_search([0, 5, 7, 10, 15], 7)
+    2
     >>> linear_search([0, 5, 7, 10, 15], 6)
     -1
     """
