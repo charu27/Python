@@ -92,8 +92,11 @@ def bisect_right(sorted_collection, item, lo=0, hi=None):
     while lo < hi:
         mid = (lo + hi) // 2
         if sorted_collection[mid] <= item:
+            
             lo = mid + 1
+            
         else:
+            
             hi = mid
 
     return lo
@@ -195,8 +198,8 @@ def binary_search(sorted_collection, item):
     >>> binary_search([0, 5, 7, 10, 15], 0)
     0
 
-    >>> binary_search([0, 5, 7, 10, 15], 15)
-    4
+    >>> binary_search([0, 5, 7, 10, 15], 10)
+    3
 
     >>> binary_search([0, 5, 7, 10, 15], 5)
     1
@@ -208,14 +211,21 @@ def binary_search(sorted_collection, item):
     right = len(sorted_collection) - 1
 
     while left <= right:
+        
         midpoint = left + (right - left) // 2
         current_item = sorted_collection[midpoint]
         if current_item == item:
+            
             return midpoint
+        
         elif item < current_item:
+            
             right = midpoint - 1
+            
         else:
+            
             left = midpoint + 1
+            
     return None
 
 
@@ -233,8 +243,8 @@ def binary_search_std_lib(sorted_collection, item):
     >>> binary_search_std_lib([0, 5, 7, 10, 15], 0)
     0
 
-    >>> binary_search_std_lib([0, 5, 7, 10, 15], 15)
-    4
+    >>> binary_search_std_lib([0, 5, 7, 10, 15], 10)
+    3
 
     >>> binary_search_std_lib([0, 5, 7, 10, 15], 5)
     1
@@ -244,7 +254,9 @@ def binary_search_std_lib(sorted_collection, item):
     """
     index = bisect.bisect_left(sorted_collection, item)
     if index != len(sorted_collection) and sorted_collection[index] == item:
+        
         return index
+    
     return None
 
 
@@ -274,15 +286,21 @@ def binary_search_by_recursion(sorted_collection, item, left, right):
 
     """
     if right < left:
+        
         return None
 
     midpoint = left + (right - left) // 2
 
     if sorted_collection[midpoint] == item:
+        
         return midpoint
+    
     elif sorted_collection[midpoint] > item:
+        
         return binary_search_by_recursion(sorted_collection, item, left, midpoint - 1)
+    
     else:
+        
         return binary_search_by_recursion(sorted_collection, item, midpoint + 1, right)
 
 
